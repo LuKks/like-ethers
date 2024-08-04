@@ -1,1 +1,1 @@
-exports.JsonRpcProvider = require('./json-rpc-provider.js')
+exports.JsonRpcProvider = require('./lib/json-rpc-provider.js')
