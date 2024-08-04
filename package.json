@@ -1,0 +1,32 @@
+{
+  "name": "like-ethers",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "lib/*"
+  ],
+  "scripts": {
+    "test": "standard && brittle test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukks/like-ethers.git"
+  },
+  "author": "Lucas Barrena (LuKks)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukks/like-ethers/issues"
+  },
+  "homepage": "https://github.com/lukks/like-ethers#readme",
+  "devDependencies": {
+    "brittle": "^3.3.2",
+    "ethers": "^6.13.2",
+    "http-proxy": "^1.18.1",
+    "socks-proxy-agent": "^8.0.4",
+    "standard": "^17.1.0"
+  },
+  "dependencies": {
+    "debounceify": "^1.1.0"
+  }
+}
