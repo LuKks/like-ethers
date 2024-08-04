@@ -45,17 +45,18 @@ test('basic', async function (t) {
 test('batch many requests', async function (t) {
   const provider = new ethers.JsonRpcProvider('https://eth.llamarpc.com')
 
-  const p1 = provider.getBlockNumber()
-  const p2 = provider.getBlockNumber()
-  const p3 = provider.getBlockNumber()
-  const p4 = provider.getBlockNumber()
+  const reqs = []
+  const MAX = ethers.JsonRpcProvider.BATCH_MAX_REQUESTS
 
-  const [bn1, bn2, bn3, bn4] = await Promise.all([p1, p2, p3, p4])
+  for (let i = 0; i < MAX + 1; i++) {
+    reqs.push(provider.getBlockNumber())
+  }
 
-  t.ok(typeof bn1 === 'number')
-  t.ok(typeof bn2 === 'number')
-  t.ok(typeof bn3 === 'number')
-  t.ok(typeof bn4 === 'number')
+  const all = await Promise.all(reqs)
+
+  for (const res of all) {
+    t.ok(typeof res === 'number')
+  }
 
   await provider.destroy()
 })
