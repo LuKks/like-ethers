@@ -23,13 +23,25 @@ test('get network', async function (t) {
   await provider.destroy()
 })
 
-test('basic', async function (t) {
+test('get block', async function (t) {
   const provider = new ethers.JsonRpcProvider('https://eth.llamarpc.com')
 
   const tag = 20455000
   const prefetchTxs = true
 
-  const promise1 = provider.getBlock(tag, prefetchTxs)
+  const block = await provider.getBlock(tag, prefetchTxs)
+
+  t.is(typeof block.number, 'number')
+  t.is(typeof block.transactions[0], 'string')
+  t.is(typeof block.prefetchedTransactions[0], 'object')
+})
+
+test('basic', async function (t) {
+  const provider = new ethers.JsonRpcProvider('https://eth.llamarpc.com')
+
+  const tag = 20455000
+
+  const promise1 = provider.getBlock(tag, true)
   const promise2 = provider.getLogs({ address: null, topics: [], fromBlock: tag, toBlock: tag })
   const promise3 = provider.getBlockNumber()
 
