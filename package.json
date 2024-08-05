@@ -27,6 +27,7 @@
     "standard": "^17.1.0"
   },
   "dependencies": {
-    "debounceify": "^1.1.0"
+    "debounceify": "^1.1.0",
+    "keccak": "^3.0.4"
   }
 }
