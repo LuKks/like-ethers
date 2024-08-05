@@ -1,6 +1,6 @@
 {
   "name": "like-ethers",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Ethereum library for Node.js",
   "main": "index.js",
   "files": [
